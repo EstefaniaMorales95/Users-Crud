@@ -53,9 +53,9 @@ function App() {
 	//Delete
 	const confirmDelete = (userId) => {
 		console.log('Confirmando eliminación del usuario con id:', userId);
-		setUserToDelete(userId); // Guardamos el usuario a eliminar
-		setIsConfirming(true); // Activamos el estado de confirmación
-		setIsOpen(true); // Abrimos el modal
+		setUserToDelete(userId);
+		setIsConfirming(true);
+		setIsOpen(true);
 	};
 	const deleteUser = () => {
 		if (userToDelete) {

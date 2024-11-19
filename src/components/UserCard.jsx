@@ -4,6 +4,7 @@ import { TfiPencil } from 'react-icons/tfi';
 import { FiTrash2 } from 'react-icons/fi';
 import './UserCard.css';
 function UserCard({ user, openEdit, confirmDelete }) {
+	const birthday = new Date(user?.birthday).toLocaleDateString();
 	return (
 		<div className="card">
 			<h3 className="card__name">
@@ -18,7 +19,7 @@ function UserCard({ user, openEdit, confirmDelete }) {
 					<span className="card__label">Cumpleaños</span>
 					<span className="card__data">
 						<ImGift className="icon--gift" />
-						{user?.birthday}
+						{birthday}
 					</span>
 				</div>
 			</div>
@@ -30,7 +31,7 @@ function UserCard({ user, openEdit, confirmDelete }) {
 							'Se está intentando eliminar el usuario con id:',
 							user?.id,
 						);
-						confirmDelete(user?.id); // Llamar a confirmDelete
+						confirmDelete(user?.id);
 					}}
 				>
 					<FiTrash2 />
