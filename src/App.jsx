@@ -20,6 +20,7 @@ function App() {
 		readUsers();
 	}, []);
 	//Create users
+
 	const showMessageModal = () => {
 		setIsOpen(true);
 		setTimeout(() => {
@@ -27,11 +28,22 @@ function App() {
 			setModalMessage('');
 		}, 3000);
 	};
-	const createUser = (dataForm) => {
-		setUsers({ url: `${baseUrl}/users`, method: 'POST', body: dataForm });
-		setIsOpen(false);
-		setModalMessage('Usuario creado exitosamente.');
-		showMessageModal();
+
+	const createUser = async (dataForm) => {
+		try {
+			await setUsers({
+				url: `${baseUrl}/users`,
+				method: 'POST',
+				body: dataForm,
+			});
+			setModalMessage('Usuario creado exitosamente.');
+			readUsers(); // Actualiza la lista de usuarios después de crear.
+		} catch (error) {
+			setModalMessage('Error al crear el usuario.');
+			console.error(error);
+		} finally {
+			showMessageModal();
+		}
 	};
 	//read
 	const readUsers = () => {
@@ -112,7 +124,7 @@ function App() {
 					<h2>Cargando...</h2>
 				) : (
 					<UserList
-						users={users}
+						users={users || []} // Asegúrate de que siempre reciba un array.
 						openEdit={openEdit}
 						confirmDelete={confirmDelete}
 					/>

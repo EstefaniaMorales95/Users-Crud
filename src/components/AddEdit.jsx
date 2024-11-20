@@ -57,7 +57,7 @@ function AddEdit({ user, onSave }) {
 					<label className="form__label">Contraseña</label>
 					<input
 						className="form__input"
-						type="text"
+						type="password"
 						{...register('password')}
 					/>
 				</div>
@@ -66,7 +66,7 @@ function AddEdit({ user, onSave }) {
 					<label className="form__label">Cumpleaños</label>
 					<input
 						className="form__input"
-						type="text"
+						type="date"
 						{...register('birthday')}
 					/>
 				</div>

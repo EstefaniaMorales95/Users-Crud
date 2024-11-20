@@ -1,14 +1,23 @@
 .card {
 	border: 1px solid #ccc;
-	background-color: #fff;
+	background-color: #ffccd5;
 	padding: 1.25em;
 	display: flex;
 	flex-direction: column;
 	gap: 1em;
+	border-radius: 4px;
 }
 .card__name {
 	border-bottom: 1px solid #ccc;
-	padding-bottom: 0.5em;
+	padding-bottom: 0.9em;
+	background-color: #ff4d6d;
+	border: 1px solid #c9184a;
+	outline: 1px solid #fff;
+	outline-offset: -2px;
+	color: #fff;
+	border-radius: 4px;
+	text-align: center;
+	padding: 3px;
 }
 .card__info {
 	display: flex;
@@ -19,7 +28,7 @@
 .card__label {
 	display: block;
 	font-weight: uppercase;
-	color: #aaa;
+	color: #ff4d6d;
 	font-size: medium;
 }
 .card__data {
